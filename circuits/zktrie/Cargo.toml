@@ -1,0 +1,24 @@
+[package]
+name = "mpt-zktrie"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+halo2curves.workspace = true
+zktrie = { git = "https://github.com/scroll-tech/zktrie.git", branch = "main", features= ["rs_zktrie"] }
+poseidon-base.workspace = true
+eth-types = { path = "../eth-types" }
+num-bigint.workspace = true
+log.workspace = true
+hex.workspace = true
+
+[dev-dependencies]
+env_logger.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+
+[features]
+default = []

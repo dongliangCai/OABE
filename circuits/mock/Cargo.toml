@@ -1,0 +1,22 @@
+[package]
+name = "mock"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+eth-types = { path = "../eth-types" }
+external-tracer = { path = "../external-tracer" }
+itertools.workspace = true
+ethers-signers.workspace = true
+ethers-core.workspace = true
+rand_chacha.workspace = true
+rand.workspace = true
+log.workspace = true
+
+[features]
+default = []
+scroll = ["eth-types/scroll", "external-tracer/scroll"]
+enable-stack = ["eth-types/enable-stack", "external-tracer/enable-stack"]
+enable-memory = ["eth-types/enable-memory", "external-tracer/enable-memory"]
+enable-storage = ["eth-types/enable-storage", "external-tracer/enable-storage"]

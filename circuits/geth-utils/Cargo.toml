@@ -1,0 +1,14 @@
+[package]
+name = "geth-utils"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[build-dependencies]
+gobuild = { git = "https://github.com/scroll-tech/gobuild.git" }
+log.workspace = true
+env_logger.workspace = true
+
+[features]
+default = []
+scroll = []

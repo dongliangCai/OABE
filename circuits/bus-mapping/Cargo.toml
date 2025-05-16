@@ -1,0 +1,57 @@
+[package]
+name = "bus-mapping"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+eth-types = { path = "../eth-types" }
+external-tracer = { path="../external-tracer" }
+gadgets = { path = "../gadgets" }
+mpt-zktrie = {path = "../zktrie"}
+mock = { path = "../mock", optional = true }
+
+ethers-core.workspace = true
+ethers-signers.workspace = true
+ethers-providers.workspace = true
+halo2_proofs.workspace = true
+hash-circuit.workspace = true
+itertools.workspace = true
+log.workspace = true
+num.workspace = true
+rand = { workspace = true, optional = true }
+serde.workspace = true
+serde_json.workspace = true
+strum.workspace = true
+hex.workspace = true
+strum_macros.workspace = true
+
+# precompile related crates
+revm-precompile.workspace = true
+
+[dev-dependencies]
+hex.workspace = true
+pretty_assertions.workspace = true
+tokio.workspace = true
+url.workspace = true
+ctor.workspace = true
+env_logger.workspace = true
+mock = { path = "../mock" }
+rand.workspace = true
+rayon.workspace = true
+
+[features]
+default = ["test"]
+test = ["mock", "rand"]
+scroll = ["eth-types/scroll", "mock?/scroll"]
+strict-ccc = []
+tracer-tests = ["enable-memory"]
+enable-stack = ["eth-types/enable-stack", "mock?/enable-stack"]
+enable-memory = ["eth-types/enable-memory", "mock?/enable-memory"]
+enable-storage = ["eth-types/enable-storage", "mock?/enable-storage"]
+# Do not use some custom tracer like "mux" in rpc call
+rpc-legacy-tracer = []
+# For the trace obtained from erigon node, refund field is missed
+# and must be rebuild
+fix-refund = ["rpc-legacy-tracer"]
+retrace-tx = []

@@ -1,0 +1,13 @@
+circuits/target
+*.png
+.DS_Store
+.vscode
+.idea
+*.log
+*.json
+*.sh
+*.txt
+*.srs
+*.hex
+*.jpg
+tmp
